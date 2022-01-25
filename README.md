@@ -1,65 +1,45 @@
 ![](https://img.shields.io/badge/Microverse-blueviolet)
 
-# Project Name
+# School Library
 
-> One paragraph statement about the project.
-
-![screenshot](./app_screenshot.png)
-
-Additional description about the project and its features.
+> A school library based on Object oriented programming using Ruby.
 
 ## Built With
 
-- Major languages
-- Frameworks
-- Technologies used
-
-## Live Demo
-
-[Live Demo Link](https://livedemo.com)
-
+- Major languages: Ruby
 
 ## Getting Started
-
-**This is an example of how you may give instructions on setting up your project locally.**
-**Modify this file to match your project, remove sections that don't apply. For example: delete the testing section if the currect project doesn't require testing.**
-
 
 To get a local copy up and running follow these simple example steps.
 
 ### Prerequisites
 
+You need to have a Ruby installed in your local machine
+
 ### Setup
 
-### Install
+To setup the Morse Message Decoder project in your local, in the repo page:
 
-### Usage
+- click on code (dropdown list) > Download as ZIP.
+- or open terminal of path you want to install project and run this command:
+  ```shell
+  git clone git@github.com:Amrhub/school-library.git
+  cd school-library # open folder of project
+  code . # to open vs code
+  ```
 
-### Run tests
+## Author
 
-### Deployment
+👤 **Amr Ahmed**
 
-
-
-## Authors
-
-👤 **Author1**
-
-- GitHub: [@githubhandle](https://github.com/githubhandle)
-- Twitter: [@twitterhandle](https://twitter.com/twitterhandle)
-- LinkedIn: [LinkedIn](https://linkedin.com/in/linkedinhandle)
-
-👤 **Author2**
-
-- GitHub: [@githubhandle](https://github.com/githubhandle)
-- Twitter: [@twitterhandle](https://twitter.com/twitterhandle)
-- LinkedIn: [LinkedIn](https://linkedin.com/in/linkedinhandle)
+- GitHub: [@Amrhub](https://github.com/amrhub)
+- LinkedIn: [Amr Ahmed](https://linkedin.com/in/amr-abdelrehim-ahmed)
 
 ## 🤝 Contributing
 
 Contributions, issues, and feature requests are welcome!
 
-Feel free to check the [issues page](../../issues/).
+Feel free to check the [issues page](https://github.com/Amrhub/decode-morse-mesasge/issues).
 
 ## Show your support
 
@@ -73,4 +53,4 @@ Give a ⭐️ if you like this project!
 
 ## 📝 License
 
-This project is [MIT](./MIT.md) licensed.
+Feel free to use this project!
