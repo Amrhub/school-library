@@ -10,6 +10,7 @@ class Person
     @name = name
     @parent_permission = parent_permission
     @corrector = Corrector.new
+    @rentals = []
   end
 
   def validate_name(name = @name)
@@ -18,6 +19,11 @@ class Person
 
   def can_use_services?
     (of_age? || @parent_permission)
+  end
+
+  def add_rental(rental)
+    @rentals << rental
+    rental.person = self unless rental.person == self
   end
 
   private
