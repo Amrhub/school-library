@@ -26,6 +26,8 @@ To setup the Morse Message Decoder project in your local, in the repo page:
   git clone git@github.com:Amrhub/school-library.git
   cd school-library # open folder of project
   code . # to open vs code
+  bundle install # install all dependencies
+  ruby main.rb
   ```
 
 ## Author
