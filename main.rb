@@ -61,7 +61,10 @@ class App
   end
 
   def list_books(print_index: false)
-    puts 'No books have been created yet.'.blue if @books.empty?
+    if @books.empty?
+      puts 'No books have been created yet.'.blue
+      @books.empty?
+    end
 
     @books.each_with_index do |book, index|
       print "#{index}) ".blue if print_index
@@ -70,7 +73,10 @@ class App
   end
 
   def list_people(print_index: false)
-    puts 'No people have been created yet.'.blue if @people.empty?
+    if @people.empty?
+      puts 'No people have been created yet.'.blue
+      return
+    end
 
     @people.each_with_index do |val, index|
       print "#{index}) ".blue if print_index
@@ -87,21 +93,38 @@ class App
   def ask_for_book_index
     puts 'Please choose a book from this list by number: '.cyan
     list_books(print_index: true)
+    return if @books.empty?
+
     gets.chomp.to_i
   end
 
   def ask_for_person_index
     puts 'Please choose a person from this list by number (not ID): '.cyan
     list_people(print_index: true)
+    return if @people.empty?
+
     gets.chomp.to_i
   end
 
   def create_rental
     person_index = ask_for_person_index
-    person = @people[person_index]
-    book_index = ask_for_book_index
-    book = @books[book_index]
+    return if @people.empty?
 
+    if person_index.between?(0, @people.size - 1)
+      person = @people[person_index]
+    else # invalid index
+      puts "Invalid index #{person_index}".red
+      return
+    end
+    book_index = ask_for_book_index
+    return if @books.empty?
+
+    if book_index.between?(0, @books.size - 1)
+      book = @books[book_index]
+    else # invalid index
+      puts "Invalid index #{book_index}".red
+      return
+    end
     puts 'Please enter the rental date (dd/mm/yyyy): '.cyan
     date = gets.chomp
     @rentals << Rental.new(date, book, person)
@@ -160,8 +183,16 @@ class App
       list_rentals
     else
       puts 'Invalid selection. Please try again.'
-      selection_action(gets.chomp.to_i)
+      input = gets.chomp.to_i
+      run(input)
     end
+  end
+
+  def run(input = nil)
+    display_main_menu if input.nil?
+    selection = gets.chomp.to_i if input.nil?
+    quit_program if input == 7 || selection == 7
+    selection_action(selection || input)
   end
 end
 
@@ -169,11 +200,7 @@ def main
   app = App.new
 
   loop do
-    app.display_main_menu
-    selection = gets.chomp.to_i
-    app.quit_program if selection == 7
-
-    app.selection_action(selection)
+    app.run
   end
 end
 
