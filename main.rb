@@ -5,33 +5,33 @@ require_relative 'book'
 require_relative 'rental'
 require 'colorize'
 
+def general_person_inputs
+  print 'Age: '.cyan
+  age = gets.chomp.to_i
+  print 'Name: '.cyan
+  name = gets.chomp
+  { age: age, name: name }
+end
+
+def create_student
+  age, name = general_person_inputs.values_at(:age, :name)
+  print 'Parent permission (y/n): '.cyan
+  parent_permission = gets.chomp.downcase == 'y'
+  Student.new(age, name, parent_permission: parent_permission)
+end
+
+def create_teacher
+  age, name = general_person_inputs.values_at(:age, :name)
+  print "What is the teacher's specialization? ".cyan
+  specialization = gets.chomp
+  Teacher.new(specialization, age, name)
+end
+
 class App
   def initialize
     @people = []
     @books = []
     @rentals = []
-  end
-
-  def general_person_inputs
-    print 'Age: '.cyan
-    age = gets.chomp.to_i
-    print 'Name: '.cyan
-    name = gets.chomp
-    { age: age, name: name }
-  end
-
-  def create_student
-    age, name = general_person_inputs.values_at(:age, :name)
-    print 'Parent permission (y/n): '.cyan
-    parent_permission = gets.chomp.downcase == 'y'
-    Student.new(age, name, parent_permission: parent_permission)
-  end
-
-  def create_teacher
-    age, name = general_person_inputs.values_at(:age, :name)
-    print "What is the teacher's specialization? ".cyan
-    specialization = gets.chomp
-    Teacher.new(specialization, age, name)
   end
 
   def create_person
